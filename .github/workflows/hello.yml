@@ -8,5 +8,5 @@ jobs:
   hello_world:
     runs-on: ubuntu-latest
     steps:
-      -name: echo the messager
-      run: echo "hola fran"
+    - name: the messager
+      uses: echo "hola"
