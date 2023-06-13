@@ -1,4 +1,4 @@
-name: say hello
+name: Int Cont
 on:
   push:
     branches:
