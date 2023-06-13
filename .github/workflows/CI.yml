@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  hello_world:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -14,3 +14,15 @@ jobs:
       uses: actions/setup-python@v3
     - run: pip install -r requirements.txt
     - run: python test_main.py
+
+  deploy: 
+      name: deploy 
+      needs: [build] 
+      runs-on: ubuntu-latest 
+      steps: 
+        - name: Deploy to production
+          uses: johnbeynon/render-deploy-action@v0.0.8
+          with: 
+            service-id: ${{ secrets.SECRET_ID }}
+            api-key: ${{ secrets.SECRET_KEY }}
+
